@@ -8,7 +8,7 @@
 
 2023/4/25
 
-今天看的![1682424977984](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682424977984.png)
+今天看的![1682424977984](D:\learning\Learning_record\WEB\Web实战.assets\1682424977984.png)
 
 然后作业是在 [Vulhub - Docker-Compose file for vulnerability environment](https://vulhub.org/#/docs/) 上进行练习
 
@@ -18,7 +18,7 @@
 
 不会cd命令
 
-![1682424011520](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682424011520.png)
+![1682424011520](D:\learning\Learning_record\WEB\Web实战.assets\1682424011520.png)
 
 进入桌面： cd ~/Desktop
 
@@ -28,7 +28,7 @@
 
 其实可以直接这样欸
 
-![1682424506146](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682424506146.png)
+![1682424506146](D:\learning\Learning_record\WEB\Web实战.assets\1682424506146.png)
 
 
 
@@ -38,11 +38,11 @@
 
 我真的不想枚举了
 
-![1682425344843](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682425344843.png)
+![1682425344843](D:\learning\Learning_record\WEB\Web实战.assets\1682425344843.png)
 
 猜猜compose在哪
 
-![1682425416479](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682425416479.png)
+![1682425416479](D:\learning\Learning_record\WEB\Web实战.assets\1682425416479.png)
 
 Linux搜文件夹也太快了吧
 
@@ -52,7 +52,7 @@ Linux搜文件夹也太快了吧
 
 有教程中的目录，我之前应该是打错了
 
-![1682425793792](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682425793792.png)
+![1682425793792](D:\learning\Learning_record\WEB\Web实战.assets\1682425793792.png)
 
 然后又是一堆意料之外的报错
 
@@ -62,11 +62,11 @@ Linux搜文件夹也太快了吧
 
 版本不符合
 
-![1682426197326](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682426197326.png)
+![1682426197326](D:\learning\Learning_record\WEB\Web实战.assets\1682426197326.png)
 
 怎么回退？
 
-![1682426516872](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682426516872.png)
+![1682426516872](D:\learning\Learning_record\WEB\Web实战.assets\1682426516872.png)
 
 pip install指定版本（已经把之前的uninstall了，这个1.26.15不是指docker，是指urllib3的版本）
 
@@ -76,21 +76,21 @@ pip install指定版本（已经把之前的uninstall了，这个1.26.15不是�
 
 那就用个旧的
 
-![1682426754706](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682426754706.png)
+![1682426754706](D:\learning\Learning_record\WEB\Web实战.assets\1682426754706.png)
 
 太旧了
 
 好了
 
-![1682426941183](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682426941183.png)
+![1682426941183](D:\learning\Learning_record\WEB\Web实战.assets\1682426941183.png)
 
 WTF
 
-![1682427118160](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682427118160.png)
+![1682427118160](D:\learning\Learning_record\WEB\Web实战.assets\1682427118160.png)
 
 解决
 
-![1682427689602](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682427689602.png)
+![1682427689602](D:\learning\Learning_record\WEB\Web实战.assets\1682427689602.png)
 
 #### 开始
 
@@ -98,7 +98,7 @@ WTF
 
 我不知道哪些是我能做的......
 
-![1682428699176](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682428699176.png)
+![1682428699176](D:\learning\Learning_record\WEB\Web实战.assets\1682428699176.png)
 
 演示的是这个
 
@@ -106,17 +106,17 @@ WTF
 
 
 
-![1682428879390](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682428879390.png)
+![1682428879390](D:\learning\Learning_record\WEB\Web实战.assets\1682428879390-1682593667722.png)
 
-![1682429039349](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682429039349.png)
+![1682429039349](D:\learning\Learning_record\WEB\Web实战.assets\1682429039349.png)
 
 不能永久是吧
 
-![1682429290719](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682429290719.png)
+![1682429290719](D:\learning\Learning_record\WEB\Web实战.assets\1682429290719.png)
 
 一定要在这个目录下
 
-![1682429504384](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682429504384.png)
+![1682429504384](D:\learning\Learning_record\WEB\Web实战.assets\1682429504384.png)
 
 ？？
 
@@ -124,7 +124,7 @@ WTF
 
 复制粘贴
 
-![1682469855504](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682469855504.png)
+![1682469855504](D:\learning\Learning_record\WEB\Web实战.assets\1682469855504.png)
 
 
 
@@ -132,11 +132,11 @@ WTF
 
 这样编辑环境变量很方便，因为普通export重启就会没了，这个可以永久
 
-![1682470454713](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682470454713.png)
+![1682470454713](D:\learning\Learning_record\WEB\Web实战.assets\1682470454713.png)
 
 
 
-![1682470523773](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682470523773.png)
+![1682470523773](D:\learning\Learning_record\WEB\Web实战.assets\1682470523773.png)
 
 
 
@@ -146,7 +146,7 @@ WTF
 
 访问网址
 
-![1682470717071](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682470717071.png)
+![1682470717071](D:\learning\Learning_record\WEB\Web实战.assets\1682470717071.png)
 
 
 
@@ -158,9 +158,9 @@ ip a(直接使用)
 
 ifconfig界面比较好看吧可能
 
-![1682472243674](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682472243674.png)
+![1682472243674](D:\learning\Learning_record\WEB\Web实战.assets\1682472243674.png)
 
-![1682472223195](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682472223195.png)
+![1682472223195](D:\learning\Learning_record\WEB\Web实战.assets\1682472223195.png)
 
 漏洞复现
 

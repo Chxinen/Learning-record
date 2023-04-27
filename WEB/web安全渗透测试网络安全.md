@@ -8,11 +8,11 @@
 
 二级域名：无www.
 
-![1682126804971](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682126804971.png)
+![1682126804971](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682126804971.png)
 
 多级域名：
 
-![1682126812621](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682126812621.png)
+![1682126812621](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682126812621.png)
 
 域名对安全的意义：
 
@@ -38,7 +38,7 @@ DNS服务器被攻击时可使访问指向其他地址，造成恶意访问
 
 缓存结点
 
-![1682128165385](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682128165385.png)
+![1682128165385](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682128165385.png)
 
 访问时给就近结点
 
@@ -56,13 +56,13 @@ DNS服务器被攻击时可使访问指向其他地址，造成恶意访问
 
 ### WBE
 
-![1682129681246](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682129681246.png)
+![1682129681246](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682129681246-1682593597171.png)
 
 从web层面逐渐深入到底层（难度更小）
 
 ### WBE相关安全漏洞
 
-![1682131980362](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682131980362.png)
+![1682131980362](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682131980362.png)
 
 ### 演示案例
 
@@ -76,15 +76,15 @@ app类结合web协议，pc类结合web协议
 
 抓web协议工具（Burp Suite）
 
-![1682133644228](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682133644228.png)
+![1682133644228](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682133644228.png)
 
 ### 请求 响应
 
-![1682235377379](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682235377379.png)
+![1682235377379](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682235377379.png)
 
 抓包软件相当于一个代理
 
-![1682236317469](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682236317469.png)
+![1682236317469](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682236317469.png)
 
 数据包是client和server直接交流的介质
 
@@ -131,3 +131,233 @@ burp suite添加一行 X-Forwarded-for ：192.168.1.1，后两位设为变量进
 绕过：找没被限制的文件夹
 
 #### 《web中间件常见漏洞总结》
+
+## WEB源码拓展
+
+### 目录结构
+
+#### 后台目录
+
+admin
+
+#### 模板目录
+
+template
+
+#### 数据库目录
+
+sql
+
+#### 数据库配置目录
+
+include, confing
+
+### 脚本类型
+
+ASP
+
+PHP
+
+ASPX
+
+JSP
+
+JAVAWEB
+
+Python
+
+### 应用分类
+
+源码功能决定漏洞类型
+
+门户
+
+电商
+
+论坛
+
+博客
+
+第三方
+
+### 其他补充
+
+框架或非框架（框架则找框架漏洞，无框架则找代码漏洞）
+
+CMS识别（人工，工具，平台）
+
+框架和CMS的区别：CMS不用学代码，框架（调用函数）还是要写代码的
+
+开源或内部（开源：直接找漏洞或审计；内部：常规渗透测试）
+
+源码获取（备份获取，CMS识别后获取，特定源码特定渠道）
+
+###### 可以自己做个字典（特定文件指定特定CMS）然后不断更新
+
+## 系统及数据库
+
+### 操作系统
+
+#### win
+
+网址对大小写不敏感=>服务器用win
+
+#### Linux
+
+网址对大小写敏感=>服务器使用Linux
+
+#### 判断
+
+nmap进行扫描可得具体信息
+
+### web
+
+##### 源码
+
+##### 搭建平台
+
+#### 数据库
+
+##### 识别数据库
+
+###### 分析
+
+ASP+Access
+
+php+mysql
+
+aspx+mssql
+
+jsp+mssql,oracle
+
+python+mongodb
+
+###### nmap扫描
+
+判定开了哪些端口来看是什么数据库
+
+##### 弱口令
+
+##### 漏洞
+
+### app
+
+#### Android
+
+#### iOS
+
+### 第三方
+
+#### openssh
+
+#### weblogic
+
+#### jboss
+
+#### serv-u
+
+## 加密编码算法
+
+直接加密，带salt，带密码，带偏移，带位数，带模式，带干扰，自定义组合
+
+解密一般可枚举，自定义逆向算法，可逆向
+
+长度位数，字符规律，代码分析，搜索获取
+
+##### MD5   
+
+16位，32位，0~9，a~z
+
+##### SHA    
+
+很多种           0~9，a~z
+
+##### ASC编码
+
+##### 时间戳     
+
+纯数字
+
+##### URL编码  
+
+%0~9，%a~z 
+
+##### BASE64编码 
+
+0~9,a~z,A~Z，字符串最后可能有1个或两个==，长度随明文相加
+
+##### Unescape 
+
+%u+四位数字 对应两个值
+
+##### AES 
+
+可能有/，由填充，数据块，**密码，偏移量**，输出进行加密，不知密码偏移量无法解密
+
+##### DES 
+
+可能有+号，/号，与base64相似
+
+## 信息搜集 CDN绕过技术
+
+CDN：使用户就近获取所需内容
+
+若存在CDN，将会影响后续安全测试（获取的是虚拟的缓存）
+
+### 如何判断有无？
+
+利用多节点技术进行请求返回判断
+
+第三方网站：超级ping
+
+### 目标常见的CDN绕过技术有哪些？
+
+fuckcdn,zmap
+
+##### 子域名查询（同ip同网段）
+
+直接搜子域名查询
+
+为了省钱给了主站CDN但没给子站
+
+或者使用手机端（www.=>m.），多一个IP
+
+##### 邮件服务查询
+
+内部邮箱一般不加CDN
+
+发送者给我发了个邮件
+
+##### 国外地址请求
+
+用国外(尽可能冷门)来请求国内（结点没有部署到国外去）
+
+get-site-ip.com(仅供参考)
+
+sam.ca.com
+
+##### 遗留文件，扫描全网
+
+遗留文件：phpinfo.php
+
+扫描全网：把所有IP都搜集，然后分析哪个是真实IP
+
+##### 黑暗引擎搜索特定文件
+
+Shodan
+
+ZoomEye
+
+fofa
+
+##### dns历史记录，以量打量
+
+历史记录：以前没用CDN的IP地址
+
+x.threatbook.cn(仅供参考)
+
+以量打量：DDOS，把cdn打光，剩的就只能用真实IP（违法doge）
+
+##### 查询结果冲突
+
+修改本地host，虚假的浏览器可能无法打开

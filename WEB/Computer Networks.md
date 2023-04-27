@@ -148,6 +148,8 @@ P2P
 
 ## 2.2The Web and HTTP
 
+![1682599430659](D:\learning\learning_record\WEB\Computer Networks.assets\1682599430659.png)
+
 ### 2.2.1Overview of HTTP
 
 HyperText Transfer Protocol
@@ -213,7 +215,7 @@ the server acknowledges and responds with a small TCP segment,
 
 the client acknowledges back to the server.
 
-![1682069130768](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682069130768.png)
+![1682069130768](D:\learning\Learning_record\WEB\Computer Networks.assets\1682069130768.png)
 
 ###### if there are more handshake, it will cost more RTT?
 
@@ -227,7 +229,7 @@ Subsequent requests and responses between the same client and server can be sent
 
 #### HTTP Request Message
 
-![1682074864507](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682074864507.png)
+![1682074864507](D:\learning\Learning_record\WEB\Computer Networks.assets\1682074864507.png)
 
 **request line**: 
 
@@ -249,7 +251,7 @@ the HTTP version field
 
 
 
-![1682075761470](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682075761470.png)
+![1682075761470](D:\learning\Learning_record\WEB\Computer Networks.assets\1682075761470.png)
 
 ##### entity body:
 
@@ -261,17 +263,17 @@ An HTTP client often uses the POST method when the user fills out a form
 
 a request generated with a form does not necessarily have to use the POST method. Instead, HTML forms often use the GET method and include the inputted data (in the form fields) in the requested URL.
 
-![1682076684404](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682076684404.png)
+![1682076684404](D:\learning\Learning_record\WEB\Computer Networks.assets\1682076684404.png)
 
 #### HTTP Response Message
 
-![1682076902554](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682076902554.png)
+![1682076902554](D:\learning\Learning_record\WEB\Computer Networks.assets\1682076902554.png)
 
-![1682335785611](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682335785611.png)
+![1682335785611](D:\learning\Learning_record\WEB\Computer Networks.assets\1682335785611.png)
 
 ### 2.2.4User-Server Interaction: Cookies
 
-![1682336315706](C:\Users\chexinn\AppData\Roaming\Typora\typora-user-images\1682336315706.png)
+![1682336315706](D:\learning\Learning_record\WEB\Computer Networks.assets\1682336315706.png)
 
 ### 2.2.5 Web Caching
 
@@ -282,4 +284,68 @@ A Web cache—also called a proxy server—is a network entity that satisfies HT
 allows a cache to verify that its objects are up to date
 
 ### 2.2.6 HTTP/2
+
+HTTP/2 changes how the data is formatted and transported between the client and server.
+
+###### what is the difference between http/1.1 and http/2?
+
+ binary framing layer ( a part of the application layer in the internet protocol stack ):
+
+ HTTP/1.1:
+
+keeps all requests and responses in plain text format
+
+head-of-line (HOL) blocking 
+
+limits to the number of concurrent TCP connections possible between a client and server, 
+
+HTTP/2:
+
+ uses the binary framing layer to encapsulate all messages in binary format, while still maintaining HTTP semantics, such as verbs, methods, and headers.  
+
+  the binary framing layer encodes requests/responses and cuts them up into smaller packets of information, greatly increasing the flexibility of data transfer. 
+
+#### HTTP/2 Framing
+
+sub-layer=>break down, interleave, reassemble HTTP message
+
+#### Response Message Prioritization and Server Pushing
+
+##### prioritize:
+
+assign a weight to each message
+
+##### server pushing: eliminate the latency
+
+HTML base page indicates the objects that will be needed to fully render the web page
+
+send them to the client before receiving explicit requests for these objects.
+
+#### HTTP/3
+
+HTTP/3 is yet a new HTTP protocol that is designed to operate over QUIC
+
+## 2.3 Electronic Mail in the Internet
+
+![1682600495983](D:\learning\learning_record\WEB\Computer Networks.assets\1682600495983.png)
+
+### 2.3.1 SMTP
+
+SMTP transfers messages from senders’ mail servers to the recipients’ mail servers.
+
+it restricts the body (not just the headers) of all mail messages to simple **7-bit ASCII.**
+
+it requires binary multimedia data to be encoded to ASCII before being sent over SMTP; 
+
+it requires the corresponding ASCII message to be decoded back to binary after SMTP transport.
+
+the message does not get placed in some intermediate mail server.(just like face-to-face human interaction)
+
+![1682602214782](D:\learning\learning_record\WEB\Computer Networks.assets\1682602214782.png)
+
+![1682602181298](D:\learning\learning_record\WEB\Computer Networks.assets\1682602181298.png)
+
+###### task:
+
+![1682602412232](D:\learning\learning_record\WEB\Computer Networks.assets\1682602412232.png)
 
