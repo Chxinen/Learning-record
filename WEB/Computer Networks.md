@@ -148,7 +148,7 @@ P2P
 
 ## 2.2The Web and HTTP
 
-![1682599430659](D:\learning\learning_record\WEB\Computer Networks.assets\1682599430659.png)
+![1682599430659](Computer%20Networks.assets\1682599430659.png)
 
 ### 2.2.1Overview of HTTP
 
@@ -215,7 +215,7 @@ the server acknowledges and responds with a small TCP segment,
 
 the client acknowledges back to the server.
 
-![1682069130768](D:\learning\Learning_record\WEB\Computer Networks.assets\1682069130768.png)
+![1682069130768](Computer%20Networks.assets/1682069130768-1682689042375.png)
 
 ###### if there are more handshake, it will cost more RTT?
 
@@ -229,7 +229,7 @@ Subsequent requests and responses between the same client and server can be sent
 
 #### HTTP Request Message
 
-![1682074864507](D:\learning\Learning_record\WEB\Computer Networks.assets\1682074864507.png)
+![1682074864507](Computer%20Networks.assets/1682074864507-1682689040382.png)
 
 **request line**: 
 
@@ -251,7 +251,7 @@ the HTTP version field
 
 
 
-![1682075761470](D:\learning\Learning_record\WEB\Computer Networks.assets\1682075761470.png)
+![1682075761470](Computer%20Networks.assets/1682075761470-1682689037040.png)
 
 ##### entity body:
 
@@ -263,17 +263,17 @@ An HTTP client often uses the POST method when the user fills out a form
 
 a request generated with a form does not necessarily have to use the POST method. Instead, HTML forms often use the GET method and include the inputted data (in the form fields) in the requested URL.
 
-![1682076684404](D:\learning\Learning_record\WEB\Computer Networks.assets\1682076684404.png)
+![1682076684404](Computer%20Networks.assets\1682076684404.png)
 
 #### HTTP Response Message
 
-![1682076902554](D:\learning\Learning_record\WEB\Computer Networks.assets\1682076902554.png)
+![1682076902554](Computer%20Networks.assets\1682076902554.png)
 
-![1682335785611](D:\learning\Learning_record\WEB\Computer Networks.assets\1682335785611.png)
+![1682335785611](Computer%20Networks.assets/1682335785611-1682689034495.png)
 
 ### 2.2.4User-Server Interaction: Cookies
 
-![1682336315706](D:\learning\Learning_record\WEB\Computer Networks.assets\1682336315706.png)
+![1682336315706](Computer%20Networks.assets/1682336315706-1682689032562.png)
 
 ### 2.2.5 Web Caching
 
@@ -327,11 +327,13 @@ HTTP/3 is yet a new HTTP protocol that is designed to operate over QUIC
 
 ## 2.3 Electronic Mail in the Internet
 
-![1682600495983](D:\learning\learning_record\WEB\Computer Networks.assets\1682600495983.png)
+![1682600495983](Computer%20Networks.assets\1682600495983.png)
 
 ### 2.3.1 SMTP
 
-SMTP transfers messages from senders’ mail servers to the recipients’ mail servers.
+a push protocol
+
+SMTP( Simple Mail Transfer Protocol ) transfers messages from senders’ mail servers to the recipients’ mail servers.
 
 it restricts the body (not just the headers) of all mail messages to simple **7-bit ASCII.**
 
@@ -341,11 +343,86 @@ it requires the corresponding ASCII message to be decoded back to binary after S
 
 the message does not get placed in some intermediate mail server.(just like face-to-face human interaction)
 
-![1682602214782](D:\learning\learning_record\WEB\Computer Networks.assets\1682602214782.png)
+![1682602214782](Computer%20Networks.assets\1682602214782.png)
 
-![1682602181298](D:\learning\learning_record\WEB\Computer Networks.assets\1682602181298.png)
+![1682602181298](Computer%20Networks.assets\1682602181298.png)
 
 ###### task:
 
-![1682602412232](D:\learning\learning_record\WEB\Computer Networks.assets\1682602412232.png)
+![1682602412232](Computer%20Networks.assets\1682602412232.png)
+
+### 2.3.2 Mail Message Formats
+
+must have a From: header line and a To: header line;
+
+may include a Subject: header line as well as other optional header lines.
+
+these header lines are different from the SMTP commands, they just the part of the mail message itself.
+
+###### task:
+
+![1682648628976](Computer%20Networks.assets\1682648628976.png)
+
+example:
+
+![1682648642381](Computer%20Networks.assets\1682648642381.png)
+
+### 2.3.3 Mail Access Protocols
+
+![1682650497602](Computer%20Networks.assets\1682650497602.png)
+
+If Bob is using **Web-based e-mail** or a smartphone app (such as Gmail), then the user agent will **use HTTP** to retrieve Bob’s e-mail. This case requires Bob’s mail server to have an HTTP interface as well as an SMTP interface (to communicate with
+Alice’s mail server). 
+
+The **alternative method**, typically used with mail clients such as Microsoft Outlook, is to use the **Internet Mail Access Protocol (IMAP)**
+
+###### 也就是说要想随时能收到邮件（无需一直开着local host）第二个server需要一直向agent发送，直至接收？
+
+## 2.4 DNS—The Internet’s Directory Service
+
+DNS(domain name system) task: 
+
+a directory service that translates hostnames to IP addresses
+
+### 2.4.1 Services Provided by DNS
+
+The DNS is
+
+ (1) a distributed database implemented in a hierarchy of DNS servers,
+\(2) an application-layer protocol that allows hosts to query the distributed database.
+
+The DNS protocol runs over **UDP** and uses **port 53**.
+
+![1682652093552](Computer%20Networks.assets\1682652093552.png)
+
+###### and the user's host will first search the local host file to see if there have the IP address of the hostname
+
+### 
+
+the desired IP address is often cached in a “nearby” DNS server, which helps to reduce DNS network traffic as well as the average DNS delay.
+
+#### a few other important services
+
+##### Host aliasing
+
+DNS can be invoked by an application to obtain the canonical hostname for a supplied alias hostname as well as the IP address of the host.
+
+##### Mail server aliasing
+
+DNS can be invoked by a mail application to obtain the canonical hostname for a supplied alias hostname as well as the IP address of the host. In fact, the MX record (see below) permits a company’s mail server and Web server to have identical (aliased) hostnames; for example, a company’s Web server and mail server can both be called enterprise.com.
+
+##### Load distribution
+
+DNS is also used to perform load distribution among replicated servers, such as replicated Web servers.
+
+When clients make a DNS query for a name mapped to a
+set of addresses, the server responds with the entire set of IP addresses, but **rotates the ordering** of the addresses within each reply. Because a **client typically sends its HTTP request message to the IP address that is listed first in the set**, DNS rotation distributes the traffic among the replicated servers.
+
+is different to CDN
+
+###### reference
+
+The interested reader is referred to these RFCs and the book by Albitz and Liu [Albitz 1993]; see also the retrospective paper [Mockapetris 1988], which provides a nice description of the what and why of DNS, and [Mockapetris 2005].
+
+### 2.4.2 Overview of How DNS Works
 

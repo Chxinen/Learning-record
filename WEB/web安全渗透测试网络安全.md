@@ -8,11 +8,11 @@
 
 二级域名：无www.
 
-![1682126804971](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682126804971.png)
+![1682126804971](web%E5%AE%89%E5%85%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8.assets/1682126804971-1682689021538.png)
 
 多级域名：
 
-![1682126812621](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682126812621.png)
+![1682126812621](web%E5%AE%89%E5%85%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8.assets/1682126812621-1682689019120.png)
 
 域名对安全的意义：
 
@@ -38,7 +38,7 @@ DNS服务器被攻击时可使访问指向其他地址，造成恶意访问
 
 缓存结点
 
-![1682128165385](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682128165385.png)
+![1682128165385](web%E5%AE%89%E5%85%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8.assets/1682128165385-1682689015922.png)
 
 访问时给就近结点
 
@@ -56,13 +56,13 @@ DNS服务器被攻击时可使访问指向其他地址，造成恶意访问
 
 ### WBE
 
-![1682129681246](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682129681246-1682593597171.png)
+![1682129681246](web%E5%AE%89%E5%85%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8.assets/1682129681246-1682593597171-1682689013669.png)
 
 从web层面逐渐深入到底层（难度更小）
 
 ### WBE相关安全漏洞
 
-![1682131980362](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682131980362.png)
+![1682131980362](web%E5%AE%89%E5%85%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8.assets/1682131980362-1682689011610.png)
 
 ### 演示案例
 
@@ -76,15 +76,15 @@ app类结合web协议，pc类结合web协议
 
 抓web协议工具（Burp Suite）
 
-![1682133644228](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682133644228.png)
+![1682133644228](web%E5%AE%89%E5%85%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8.assets/1682133644228-1682689009149.png)
 
 ### 请求 响应
 
-![1682235377379](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682235377379.png)
+![1682235377379](web%E5%AE%89%E5%85%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8.assets/1682235377379-1682689007135.png)
 
 抓包软件相当于一个代理
 
-![1682236317469](D:\learning\Learning_record\WEB\web安全渗透测试网络安全.assets\1682236317469.png)
+![1682236317469](web%E5%AE%89%E5%85%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8.assets/1682236317469-1682689005062.png)
 
 数据包是client和server直接交流的介质
 
