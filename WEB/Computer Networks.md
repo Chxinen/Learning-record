@@ -148,7 +148,7 @@ P2P
 
 ## 2.2The Web and HTTP
 
-![1682599430659](Computer%20Networks.assets\1682599430659.png)
+![1682599430659](Computer%20Networks.assets/1682599430659.png)
 
 ### 2.2.1Overview of HTTP
 

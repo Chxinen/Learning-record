@@ -8,8 +8,6 @@
 
 2023/4/25
 
-今天看的![1682424977984](D:\learning\Learning_record\WEB\Web实战.assets\1682424977984.png)
-
 然后作业是在 [Vulhub - Docker-Compose file for vulnerability environment](https://vulhub.org/#/docs/) 上进行练习
 
 于是我下了个Ubuntu并开始安装docker
