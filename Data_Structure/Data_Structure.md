@@ -233,7 +233,232 @@ head既作为行的头结点也作为列的头结点
 
 ### 堆栈
 
+有优先级（表达式求值）
+
+后入先出
+
+#### 操作
+
+##### 数组
+
+```
+#define MaxSize
+typedef struct SNode *Stack;
+struct SNode{
+	ElementType Data[MaxSize];
+	int Top;
+}
+//入栈
+void Push(Stack PtrS,ElementType item)
+{
+	if(PtrS->Top==MaxSize-1) return;
+	else {
+		PtrS->Data[++(PtrS->Top)]=item;
+		return;
+	}
+}
+//出栈
+ElementType Pop(Stack PtrS,ElementType item)
+{
+	if(PtrS->Top==-1)return ERROR;//空
+	else{
+		return(PtrS->Data[(PtrS->Top)--];	
+	}
+}
+```
+
+
+
+![1682750699584](Data_Structure.assets/1682750699584.png)
+
+```
+#define MaxSize
+struct DStack{
+	ElementType Data[MaxSize];
+	int Top1;
+	int Top2;
+};
+void Push(struct DStack *PtrS,ElementType item,int Tag)
+{
+	if(PtrS->Top2-PtrS->top1==1) return;//堆栈满
+	if(Tag==1) PtrS->Data[++(PtrS->Top1)]=item;
+	else PtrS->Data[--(PtrS->Top)]=item;
+}
+ElementType Pop(struct DStack *PtrS,int Tag){
+	if(Tag==1){
+		if(PtrS->Top2==-1) return NULL;
+		else return PtrS->Data[(PtrS->Top2)--];
+	} else{
+		if(PtrS->Top2==MaxSize) return NULL;
+		else return PtrS->Data[(PtrS->Top2)++];
+	}
+}
+```
+
+##### 链表
+
+栈顶指针应该在链表表头（表尾可入栈，但出栈很麻烦，因为又要去找上个结点）
+
+```
+typedef struct SNode *Stack;
+struct SNode{
+	ElementType Data;
+	struct SNode *Next;
+};
+//构建一个头结点，便于插入和删除
+Stack CreateStack(){
+	Stack S;
+	S=(Stack)malloc(sizeof(struct SNode));
+	S->Next=NULL;
+	return S;
+}
+//判断是否空
+int IdEmpty(Stack S){
+	return (S->Next==NULL);//空返回1，非空返回0
+}
+//入
+void Push(ElementType item,Stack S){
+	struct SNode *TmpCell;
+	TmpCell=(Stack SNode *)malloc(sizeof(struct SNode));
+	TmpCell->Element=item;
+	TmpCell->Next=S->Next;
+	S->Next=TmpCell;
+}
+//出
+ElementType Pop(Stack S){
+	struct SNode *FirstCell;
+	ElementType TopElem;
+	if(IsEmpty(S)) return NULL;
+	else{
+		FirstCell =S->Next;
+		S->Next=FirstCell->Next;
+		TopElem=FirstCell->Element;
+		free(FirstCell);
+		return TopElem;
+	}
+}
+```
+
+#### 应用：
+
+表达式求值
+
+![1682753813816](Data_Structure.assets/1682753813816.png)
+
+```
+
+```
+
+函数调用几递归实现
+
+深度优先搜索
+
+回溯算法
+
 ### 队列
+
+![1682757856321](Data_Structure.assets/1682757856321.png)
+
+一端插入，另一端删除
+
+先来先出
+
+##### 数组
+
+```
+#define MaxSize
+struct QNode{
+	ElementType Data[MaxSize];
+	int rear;
+	int front;
+};
+typedef struct QNode *Queue;
+
+```
+
+循环队列
+
+![1682756683597](Data_Structure.assets/1682756683597.png)
+
+队列状态有n+1种，Front和Rear相差情况有n种=>无法用差值表示所有情况
+
+解决方案：
+
+1.使用额外标记
+
+2.仅使用n-1个数组空间
+
+```
+//入
+void AddQ(Queue PtrQ,ElementType item)
+{
+	if((PtrQ->rear+1)%MaxSize==PtrQ->front){
+		return;//满
+	}
+	PtrQ->rear=(PtrQ->rear+1)%MaxSize;//实现由尾到头
+	PtrQ->Data[PtrQ->rear]=item;
+}
+//出
+ElementType DeleteQ(Queue PtrQ){
+	if(PtrQ->front==PtrQ->rear){
+		return ERROR;//空
+	}else{
+		PtrQ->front=(PtrQ->front+1)%MaxSize;//最开始为-1
+		return PtrQ->Data[PtrQ->front];
+	}
+}
+```
+
+##### 链表
+
+![1682758296538](Data_Structure.assets/1682758296538.png)
+
+```
+struct Node{
+	ElementType Data;
+	struct Node *Next;
+};
+struct QNode{
+	struct Node *rear;
+	struct Node *front;
+};
+typedef struct QNode *Queue;
+//入队
+void AddQ(ElementType item,Queue PtrQ)
+{
+	struct Node *RearCell;
+	RearCell=(struct Node *)malloc(sizeof(struct Node));
+	RearCell->Data=item;
+	RearCell->Next=NULL;
+	if(PtrQ->rear==NULL){//空
+		PtrQ->front=RearCell;
+		PtrQ->rear=RearCell;
+	}
+	else{
+		PtrQ->rear->Next = RearCell;//改变结点指向
+		PteQ->rear=RearCell;//改变队尾指向
+	}
+}
+//出队
+ElementType DeleteQ(Queue PtrQ)
+{
+	struct Node *FrontCell;
+	ElementType FrontElem;
+	if(PtrQ->front==NULL){
+		return ERROR;
+	}
+	FrontCell=PtrQ->front;
+	FrontElem=FrontCell->Data;
+	if(PtrQ->front==PtrQ->rear)//只有一个元素
+		PtrQ->front=PtrQ->rear=NULL;
+	else
+		PtrQ->front=PtrQ->front->Next;	
+	free(FrontCell);
+	return FrontElem;
+}
+```
+
+
 
 ## 树
 
