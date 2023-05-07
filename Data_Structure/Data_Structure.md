@@ -207,6 +207,20 @@ List Delete(int i,List PtrL){
 }
 ```
 
+##### 应用实例教训：
+
+![1683464697478](Data_Structure.assets/1683464697478.png)
+
+这样建，出来的是这样
+
+![1683465045405](Data_Structure.assets/1683465045405.png)
+
+然后再指向NULL
+
+可以加个if去掉那个random。
+
+
+
 ### 广义表，多重链表
 
 转化为线性表
