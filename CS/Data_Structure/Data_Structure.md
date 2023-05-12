@@ -655,11 +655,175 @@ int PostOrderGetHeight(BinTree BT)
 
 ### 二叉搜索树
 
+把数据放到树上进行查找
+
+![1683701488811](Data_Structure.assets/1683701488811.png)
+
+![1683701671379](Data_Structure.assets/1683701671379.png)
+
+```
+Position IterFind(ElementType X,BinTree BST)
+{
+	while(BST){
+		if(x>BST->Data)
+			BST=BST->Right;
+		else if(BST<BST->Data)
+			BST=BST->Left;
+		else
+		 return BST;
+	}
+	return NULL:
+}
+```
+
+##### 查找最大最小：最大一定在最右(叶或根)，最小一定在最左（叶）
+
+![1683702278482](Data_Structure.assets/1683702278482.png)
+
+###### 感觉不全对啊，如果是这样子的呢
+
+![1683702178480](Data_Structure.assets/1683702178480.png)
+
+
+
+这个不是二叉搜索树，二叉搜索树是子树的所有键值，不是单单是两个儿子的键值
+
+##### 插入
+
+```
+BinTree Insert(ElementType X,BinTree BTS)
+{
+	if(BTS==NULL){
+		BST=new TreeNode;
+		BTS->Data=X;
+		BST->Left=BST->Right=NULL;
+	} else{
+		if(X>BTS->Data){
+			BTS->Right=Insert(X,BTS->Right);
+		}
+		else if(X<BTS->Data){
+			BTS->Left=Insert(X,BTS->Left);
+		}
+	}
+	return BST;
+}
+```
+
+##### 删除
+
+要删除的结点有两个子树
+
+左儿子最大值/右儿子最小值当被删的节点（copy过去）
+
+![1683703631453](Data_Structure.assets/1683703631453.png)
+
+```
+BinTree Delete(ElementType X,BinTree BST)
+{
+	if(X>BST->Data){
+		BST->Right=Delete(X,BST->Right);
+	}
+	if(x<BST->Data){
+		BTS->Left=Insert(X,BTS->Left);
+	}
+	if(X==BST->Data){
+		if(BST->Left&&BST->Right){
+			Tmp=FindMin(BST->Right);//右子树中找最小值
+			BST->Data=Tmp->Data;
+			BST->Right=Delete(BST->Data,BST->Right);
+		}
+		else{
+			Position Tmp=BST;
+			if(!BST->Left) BST=BST->Right;
+			else if(!BST->Right) BST=BST->Left;
+			free(Tmp);
+		}	
+	}
+	return BST;
+}
+```
+
 ### 平衡二叉树
+
+对于搜索树不同插入顺序造成树的深度不同，导致效率不同
+
+![1683705295999](Data_Structure.assets/1683705295999.png)
+
+![1683705602310](Data_Structure.assets/1683705602310.png)
+
+![1683705543081](Data_Structure.assets/1683705543081.png)
+
+##### 平衡二叉树的调整
+
+右子树的右边
+
+![1683705803699](Data_Structure.assets/1683705803699.png)
+
+![1683705868333](Data_Structure.assets/1683705868333.png)
+
+![1683705885981](Data_Structure.assets/1683705885981.png)
+
+
+
+左子树的左边
+
+![1683705941558](Data_Structure.assets/1683705941558.png)
+
+
+
+左子树的右边
+
+![1683706008571](Data_Structure.assets/1683706008571.png)
+
+
+
+右子树的左边
+
+![1683706157198](Data_Structure.assets/1683706157198.png)
+
+
 
 ### 堆
 
+解决需要考虑优先级别的问题=>优先队列
+
+![1683765925623](Data_Structure.assets/1683765925623.png)
+
+![1683766077622](Data_Structure.assets/1683766077622.png)
+
+从下标为1的地方开始存储
+
+##### 插入
+
+![1683766215373](Data_Structure.assets/1683766215373.png)
+
+##### 删除
+
+![1683766679086](Data_Structure.assets/1683766679086.png)
+
+##### 建立
+
+![1683767555150](Data_Structure.assets/1683767555150.png)
+
 ### 哈夫曼树和哈夫曼编码
+
+![1683767844009](Data_Structure.assets/1683767844009.png)
+
+##### 构造
+
+把权值最小的二叉树合并
+
+利用堆（最小堆）
+
+![1683767932714](Data_Structure.assets/1683767932714.png)
+
+#### 哈夫曼编码
+
+避免二义性=>出现在叶节点上
+
+![1683768456509](Data_Structure.assets/1683768456509.png)
+
+![1683768467284](Data_Structure.assets/1683768467284.png)
 
 ### 集合
 
