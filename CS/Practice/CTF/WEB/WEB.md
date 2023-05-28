@@ -102,6 +102,8 @@ post与get的区别难道是因为body的位置不同，所以不能在上面写
 
 ![1683891707831](WEB.assets/1683891707831.png)
 
+## 5/12
+
 ### command_execution
 
 #### waf
@@ -158,3 +160,54 @@ host文件位置："C:\Windows\SysWOW64\WindowsPowerShell\v1.0\Modules\Microsoft
 
 ![1683895785565](WEB.assets/1683895785565.png)
 
+## 5/13
+
+### xff_referer
+
+ 伪造X-Forwarded-for 和referer
+
+注意，当加东西到末尾后面要**加两个回车**，这是格式。格式不对没有response
+
+#### X-Forwarded-For: IP
+
+X-Forwarded-For(XFF) 简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP，只有在通过了HTTP 代理或者负载均衡服务器时才会添加该项。 
+
+![1683954422284](WEB.assets/1683954422284.png)
+
+我的理解是通过xff可以知道用户IP地址，从而给用户分配最近的服务器
+
+![1683953882673](WEB.assets/1683953882673.png)
+
+#### referer：来源（从哪里来这个页面的）
+
+![1683954086397](WEB.assets/1683954086397.png)
+
+## 5/14
+
+### simple_js
+
+F12，给了段js的代码，读完后发现与输入值无关。所以这题就是就是代码写错了，所以怎么输入都是密码错误。把代码改正确，并保存为html，再把代码中的密码转换为正确格式输入即可得到flag。
+
+##### \x的编码
+
+可以把\x手动 转化为%再用URL解码
+
+## 5/20
+
+### baby_web
+
+点进去自动1.php
+
+把1.php删掉访问前面，得到Flag
+
+![1684565848296](WEB.assets/1684565848296.png)
+
+### ics-06
+
+思路完全跑偏了。他是里面有个不一样的网页，然后发现id是爆破点。我……F12看到里面有个红色的链接，并可以下载一个txt，里面是processGoogleToken，然后我chatgpt发现这是sever端的东西，肯定不是，于是看writeup。
+
+## 5/23
+
+### php_rce
+
+RCE漏洞，可以让攻击者直接向后台服务器远程注入操作系统命令或者代码，从而控制后台系统 

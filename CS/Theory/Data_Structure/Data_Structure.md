@@ -2,6 +2,10 @@
 
 ## 线性结构
 
+![1684112795832](Data_Structure.assets/1684112795832.png)
+
+![1684113583416](Data_Structure.assets/1684113583416.png)
+
 ### 线性表
 
 抽象数据类型描述：
@@ -508,7 +512,19 @@ ElementType DeleteQ(Queue PtrQ)
 
 #### 遍历=>二维变一维
 
-前序：结左右(第一次碰到结点时输出)
+##### 二叉树三种遍历的规律
+
+如果其中序遍历结果与前序遍历结果一样， 该二叉树没有左儿子，与前序遍历结果相反，没有右儿子
+
+如果其中序遍历结果与后序遍历结果一样，该二叉树没有右儿子；与后序遍历结果相反，没有左儿子。
+
+在前序遍历中，跟在父节点后出现的第一个结点一定是左儿子，左儿子输出完的第一个结点是右儿子
+
+**对于前（后）序遍历和中序遍历确定二叉树**：
+
+前（后）序遍历确定根，中序遍历确定左右儿子
+
+##### 前序：结左右(第一次碰到结点时输出)
 
 ```c++
 void search(BinTree BT){
@@ -528,7 +544,7 @@ void search(BinTree BT){
 }
 ```
 
-中序：左结右（第二次碰到结点时输出）
+##### 中序：左结右（第二次碰到结点时输出）
 
 ```c++
 void search(BinTree BT){
@@ -548,7 +564,7 @@ void search(BinTree BT){
 }
 ```
 
-后序：左右结（第三次碰到结点）
+##### 后序：左右结（第三次碰到结点）
 
 ```c++
 //strcut TreeNode {
@@ -645,11 +661,48 @@ int PostOrderGetHeight(BinTree BT)
 
 #####  两种遍历序列确定二叉树
 
-必须有中序遍历
+必须有中序遍历（先+中/后+中）
+
+![1683941695513](Data_Structure.assets/1683941695513.png)
+
+##### 判断相等
+
+```
+int check(Tree root1,Tree root2) {
+	if(root1==NULL&&root2==NULL){
+		return 1;
+	}
+	if(root1->data==root2->data) {
+		return check(root1->left,root2->left)&&check(root1->right,root2->right);
+	} else return 0;
+}
+//一定是两边一起=>&&
+```
+
+
 
 ##### 判断同构
 
 左右孩子交换可变成一样
+
+```
+int judge(int r1,int r2) {
+	//cout<<r1<<" "<<r2<<endl;
+	//printf("t1[r1].a:%d t2[r2].a:%d t1[r1].l:%d t1[r1].r:%d t2[r2].l:%d t2[r2].r:%d\n",	t1[r1].a,t2[r2].a,t1[r1].l,t1[r1].r,t2[r2].l,t2[r2].r);
+	if(n[0]==n[1]&&n[0]==0) return 1;
+//	if(n[0]!=n[1]) return 0;
+    if(t1[r1].a!=t2[r2].a) return 0;
+	else if(t1[r1].l=='-'-'0'&&t1[r1].r=='-'-'0'&&t2[r2].l=='-'-'0'&&t2[r2].r=='-'-'0') 		return 1;
+	else if(t1[r1].l!='-'-'0'&&t2[r2].l!='-'-'0'&&t1[r1].r=='-'-'0'&&t2[r2].r=='-'-'0') 		return (judge(t1[r1].l,t2[r2].l));
+	else if(t1[r1].l!='-'-'0'&&t2[r2].r!='-'-'0'&&t1[r1].r=='-'-'0'&&t2[r2].l=='-'-'0') 		return (judge(t1[r1].l,t2[r2].r));
+	else if(t1[r1].r!='-'-'0'&&t2[r2].l!='-'-'0'&&t1[r1].l=='-'-'0'&&t2[r2].r=='-'-'0') 		return (judge(t1[r1].r,t2[r2].l));
+	else if(t1[r1].r!='-'-'0'&&t2[r2].l!='-'-'0'&&t1[r1].r=='-'-'0'&&t2[r2].l=='-'-'0') 		return (judge(t1[r1].r,t2[r2].l));
+	else if(t1[r1].l!='-'-'0'&&t2[r2].l!='-'-'0' &&t1[r1].r!='-'-'0'&&t2[r2].r!='-'-'0') 
+		return (judge(t1[r1].l,t2[r2].l)&&judge(t1[r1].r,t2[r2].r)
+	       		||judge(t1[r1].l,t2[r2].r)&&judge(t1[r1].r,t2[r2].l));
+	else return 0;
+}
+```
 
 
 
@@ -690,6 +743,8 @@ Position IterFind(ElementType X,BinTree BST)
 
 ##### 插入
 
+与输入顺序有关（比如12与21，先1后2就是1为结点2为右儿子，先2后1就是2为结点1为左儿子）
+
 ```
 BinTree Insert(ElementType X,BinTree BTS)
 {
@@ -699,13 +754,13 @@ BinTree Insert(ElementType X,BinTree BTS)
 		BST->Left=BST->Right=NULL;
 	} else{
 		if(X>BTS->Data){
-			BTS->Right=Insert(X,BTS->Right);
+			BTS->Right=Insert(X,BTS->Right);//以此来保留上一级路径
 		}
 		else if(X<BTS->Data){
 			BTS->Left=Insert(X,BTS->Left);
 		}
 	}
-	return BST;
+	return BST;//最终返回头结点
 }
 ```
 
@@ -781,6 +836,88 @@ BinTree Delete(ElementType X,BinTree BST)
 
 ![1683706157198](Data_Structure.assets/1683706157198.png)
 
+```
+typedef struct AVLNode *Position;
+typedef Position AVLTree; /* AVL树类型 */
+struct AVLNode{
+    ElementType Data; /* 结点数据 */
+    AVLTree Left;     /* 指向左子树 */
+    AVLTree Right;    /* 指向右子树 */
+    int Height;       /* 树高 */
+};
+
+int Max ( int a, int b )
+{
+    return a > b ? a : b;
+}
+
+AVLTree SingleLeftRotation ( AVLTree A )
+{ /* 注意：A必须有一个左子结点B */
+  /* 将A与B做左单旋，更新A与B的高度，返回新的根结点B */     
+
+    AVLTree B = A->Left;
+    A->Left = B->Right;//把A->left指向A即将到达的位置B，与下一句顺序可换
+    B->Right = A;
+    A->Height = Max( GetHeight(A->Left), GetHeight(A->Right) ) + 1;
+    B->Height = Max( GetHeight(B->Left), A->Height ) + 1;
+ 
+    return B;
+}
+
+AVLTree DoubleLeftRightRotation ( AVLTree A )
+{ /* 注意：A必须有一个左子结点B，且B必须有一个右子结点C */
+  /* 将A、B与C做两次单旋，返回新的根结点C */
+    
+    /* 将B与C做右单旋，C被返回 */
+    A->Left = SingleRightRotation(A->Left);
+    /* 将A与C做左单旋，C被返回 */
+    return SingleLeftRotation(A);
+}
+
+/*************************************/
+/* 对称的右单旋与右-左双旋请自己实现 */
+/*************************************/
+
+AVLTree Insert( AVLTree T, ElementType X )
+{ /* 将X插入AVL树T中，并且返回调整后的AVL树 */
+    if ( !T ) { /* 若插入空树，则新建包含一个结点的树 */
+        T = (AVLTree)malloc(sizeof(struct AVLNode));
+        T->Data = X;
+        T->Height = 0;
+        T->Left = T->Right = NULL;
+    } /* if (插入空树) 结束 */
+
+    else if ( X < T->Data ) {
+        /* 插入T的左子树 */
+        T->Left = Insert( T->Left, X);
+        /* 如果需要左旋 */
+        if ( GetHeight(T->Left)-GetHeight(T->Right) == 2 )
+            if ( X < T->Left->Data ) 
+               T = SingleLeftRotation(T);      /* 左单旋 */
+            else 
+               T = DoubleLeftRightRotation(T); /* 左-右双旋 */
+    } /* else if (插入左子树) 结束 */
+    
+    else if ( X > T->Data ) {
+        /* 插入T的右子树 */
+        T->Right = Insert( T->Right, X );
+        /* 如果需要右旋 */
+        if ( GetHeight(T->Left)-GetHeight(T->Right) == -2 )
+            if ( X > T->Right->Data ) 
+               T = SingleRightRotation(T);     /* 右单旋 */
+            else 
+               T = DoubleRightLeftRotation(T); /* 右-左双旋 */
+    } /* else if (插入右子树) 结束 */
+
+    /* else X == T->Data，无须插入 */
+
+    /* 别忘了更新树高 */
+    T->Height = Max( GetHeight(T->Left), GetHeight(T->Right) ) + 1;
+    
+    return T;
+}
+```
+
 
 
 ### 堆
@@ -827,7 +964,29 @@ BinTree Delete(ElementType X,BinTree BST)
 
 ### 集合
 
+##### 表示
 
+![1684109006898](Data_Structure.assets/1684109006898.png)
 
+ 
 
+![1684109139766](Data_Structure.assets/1684109139766.png)
+
+##### 查找
+
+![1684109198633](Data_Structure.assets/1684109198633.png)
+
+##### 并运算
+
+![1684109258671](Data_Structure.assets/1684109258671.png)
+
+![1684109973386](Data_Structure.assets/1684109973386.png)
+
+![1684110133686](Data_Structure.assets/1684110133686.png)
+
+## 图
+
+![1684110318094](Data_Structure.assets/1684110318094.png)
+
+![1684110373536](Data_Structure.assets/1684110373536.png)
 
